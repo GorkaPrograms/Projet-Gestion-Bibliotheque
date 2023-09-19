@@ -13,8 +13,33 @@
         <!-- Style -->
     </head>
     <body >
-    <h1 class="text-8xl font-bold underline">
-        Hello world!
-    </h1>
+        <form action="{{route('libraries.create')}}" method="GET" id="addBookForm">
+            <input type="text" class="" placeholder="Titre" name="title">
+            <input type="text" class="" placeholder="Auteur" name="author">
+            <input type="text" class="" placeholder="Genre" name="genre">
+            <input type="date" class="" placeholder="Publié le" name="publishedOn">
+            <button type="submit">Soumettre</button>
+        </form>
+
+        <table class="" id="booksTable">
+            <thead>
+                <tr>
+                    <td>Titre</td>
+                    <td>Auteur</td>
+                    <td>Genre</td>
+                    <td>Publié le</td>
+                    <td>Mettre à jour</td>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+            </tbody>
+        </table>
     </body>
 </html>
