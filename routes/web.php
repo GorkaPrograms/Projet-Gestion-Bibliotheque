@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LibraryController;
+use App\Http\Controllers\LivreController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,10 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/libraries', [LibraryController::class, 'index'])->name('libraries.index');
-Route::get('/libraries/create', [LibraryController::class, 'create'])->name('libraries.create');
-Route::post('/libraries', [LibraryController::class, 'store'])->name('libraries.store');
-Route::get('/libraries/{library}', [LibraryController::class, 'show'])->name('libraries.show');
-Route::get('/libraries/{library}/edit', [LibraryController::class, 'edit'])->name('libraries.edit');
-Route::put('/libraries/{library}', [LibraryController::class, 'update'])->name('libraries.update');
-Route::delete('/libraries/{library}', [LibraryController::class, 'destroy'])->name('libraries.delete');
+Route::get('/livre', [LivreController::class, 'index']);
+Route::get('/livre/create', [LivreController::class, 'create']);
+Route::post('/livre/store', [LivreController::class, 'store']);
+Route::get('/livre/{library}', [LivreController::class, 'show']);
+Route::get('/livre/{library}/edit', [LivreController::class, 'edit']);
+Route::put('/livre/{library}', [LivreController::class, 'update']);
+Route::delete('/livre/{library}', [LivreController::class, 'destroy']);

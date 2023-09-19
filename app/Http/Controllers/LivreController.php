@@ -2,35 +2,42 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Library;
+use App\Models\Livre;
 
-class LibraryController extends Controller
+class LivreController extends Controller
 {
+    public function create()
+    {
+        return view('livres.create');
+    }
+
     // Display a listing of the resource.
     public function index()
     {
-        $libraries = Library::all();
-        return view('libraries.index', compact('libraries'));
+        $livres = Livre::all();
+        return view('livres.index', compact('livres'));
     }
 
-    // Show the form for creating a new resource.
-    public function create()
-    {
-        return view('libraries.create');
-    }
 
     // Store a newly created resource in storage.
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            // Add validation rules for other fields
+            'title' => 'required',
+            'author' => 'required',
+            'genre' => 'required',
+            'publishedOn' => 'required',
+
         ]);
 
-        Library::create($request->all());
+        $livre = new Livre();
+        $livre->title = $request->title;
+        $livre->author = $request->author;
+        $livre->genre = $request->genre;
+        $livre->published_on = $request->publishedOn;
+        $livre->save();
 
-        return redirect()->route('libraries.index')
-            ->with('success', 'Library created successfully.');
+        return redirect('/')->with('success', 'ton livre à été ajouté avec succès.');
     }
 
     // Display the specified resource.
