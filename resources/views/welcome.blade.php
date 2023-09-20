@@ -11,7 +11,7 @@
     <body >
     @if(session('success'))
         <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4">
-            <p class="font-bold">tiens petit enculé</p>
+            <p class="font-bold">tiens </p>
             <p>{{ session('success') }}</p>
         </div>
     @endif
@@ -23,28 +23,34 @@
         <input type="date" class="" placeholder="Publié le" name="publishedOn">
         <button type="submit">Soumettre</button>
     </form>
+
+
     </br>
-    <table class="" id="booksTable">
-        <thead>
-        <tr>
-            <td>Titre</td>
-            <td>Auteur</td>
-            <td>Genre</td>
-            <td>Publié le</td>
-            <td>Modifier</td>
-            <td>Supprimer</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a href="#">Modifier</a></td>
-            <td><a href="#">Supprimer</a></td>
-        </tr>
-        </tbody>
-    </table>
+
+        <table class="" id="booksTable">
+            <thead>
+                <tr>
+                    <td>Titre</td>
+                    <td>Auteur</td>
+                    <td>Genre</td>
+                    <td>Publié le</td>
+                    <td>Modifier</td>
+                    <td>Supprimer</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($livres as $livre)
+                <tr>
+                    <td>{{$livre->title}}</td>
+                    <td>{{$livre->author}}</td>
+                    <td>{{$livre->genre}}</td>
+                    <td>{{$livre->published_on}}</td>
+                    <td><a href="#">Modifier</a></td>
+                    <td><a href="#">Supprimer</a></td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+
     </body>
 </html>

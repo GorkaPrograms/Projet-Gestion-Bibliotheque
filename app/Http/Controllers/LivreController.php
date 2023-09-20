@@ -15,7 +15,7 @@ class LivreController extends Controller
     public function index()
     {
         $livres = Livre::all();
-        return view('livres.index', compact('livres'));
+        return view('welcome', compact('livres'));
     }
 
 
@@ -43,7 +43,9 @@ class LivreController extends Controller
     // Display the specified resource.
     public function show(Library $library)
     {
-        return view('libraries.show', compact('library'));
+        $livres = Livre::all();
+
+        return view('livres.show', ['livres' => $livres]);
     }
 
     // Show the form for editing the specified resource.

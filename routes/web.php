@@ -13,9 +13,7 @@ use App\Http\Controllers\LivreController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LivreController::class, 'index']);
 
 Route::get('/livre', [LivreController::class, 'index']);
 Route::get('/livre/create', [LivreController::class, 'create']);
